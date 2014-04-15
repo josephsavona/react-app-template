@@ -9,12 +9,16 @@
     "url": ""
   },
   "scripts": {
-    "test": "tap ./test",
-    "build": "browserify -e index.js -o dist/index.js",
-    "start": "gulp server --debug"
+    "test":       "NODE_ENV=test mocha test/init.js 'src/**/*spec.js' 'lib/**/*spec.js' --reporter spec",
+    "watch-test": "NODE_ENV=test mocha test/init.js 'src/**/*spec.js' 'lib/**/*spec.js' --reporter min --watch",
+    "build":      "NODE_ENV=production gulp build",
+    "start":      "NODE_ENV=development gulp server --debug --open"
   },
   "keywords": [],
-  "author": "Joe Savona <joe@josephsavona.com>",
+  "author": {
+    "name": "Joe Savona",
+    "email": "joe@josephsavona.com"
+  },
   "license": "MIT License",
   "devDependencies": {
     "reactify": "0.10.0",
@@ -29,21 +33,35 @@
     "minimist": "0.0.8",
     "proxy": "josephsavona/api-proxy",
     "connect-livereload": "0.3.2",
-    "tiny-lr": "0.0.5"
+    "tiny-lr": "0.0.5",
+    "proxyquire": "0.5.3",
+    "node-jsx": "0.10.0",
+    "jsdom": "0.10.4",
+    "jquery": "2.1.0",
+    "uglifyify": "2.1.1",
+    "open": "0.0.4",
+    "jshint-stylish": "^0.1.5",
+    "gulp-jshint": "1.5.3",
+    "gulp-react": "0.3.1",
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2",
+    "sinon": "^1.9.1",
+    "socket.io": "^0.9.16",
+    "nock": "^0.27.3"
   },
   "dependencies": {
     "react": "0.10.0",
     "react-addons": "0.9.0",
     "react-async": "0.8.0",
-    "react-router-component": "0.17.0",
-    "unify-rift": "josephsavona/unify-rift",
-    "bluebird": "1.1.1",
+    "unify-rift": "josephsavona/unify-rift#v0.5.1",
+    "bluebird": "1.2.2",
     "lodash": "2.4.1",
     "bootstrap": "twbs/bootstrap#v3.1.1"
   },
   "browserify": {
     "transform": [
-      "reactify"
+      "reactify",
+      "envify"
     ]
   }
 }

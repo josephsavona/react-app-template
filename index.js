@@ -1,7 +1,5 @@
 /** @jsx React.DOM */
-var React = require('react');
-var addons = require('react-addons');
-var pkg = require('./package.json');
+var config = require('./config/config');
  
 // configure API
 var rift = require('rift')('api');

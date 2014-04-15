@@ -1,3 +1,6 @@
+# Config
+config/config.local.js
+
 # OSX
 .DS_Store
 .AppleDouble
